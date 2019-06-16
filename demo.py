@@ -249,11 +249,7 @@ with tf.Session() as sess, open(LOG_FILE, 'w') as log_file:
                     actor_gradient_batch.append(actor_gradient)
                     critic_gradient_batch.append(critic_gradient)
 
-                    print ("====")
-                    print ("Time", epoch)
-                    print ("buffer", td_loss, "Throughput", np.mean(r_batch), "reward", np.mean(entropy_record))
-                    print ("====")
-
+                
                     summary_str = sess.run(summary_ops, feed_dict={
                         summary_vars[0]: td_loss,
                         summary_vars[1]: np.mean(r_batch),
